@@ -37,7 +37,7 @@ apt-get -y install php wget unzip
 
 ```
 git clone https://github.com/ReworkedsModder/CamPhish-Modder
-cd CamPhish
+cd CamPhish-Modder
 bash camphish.sh
 ```
 
