@@ -36,7 +36,7 @@ apt-get -y install php wget unzip
 ## Installing (Kali Linux/Termux):
 
 ```
-git clone https://github.com/ReworkedsModder/CamPhish-Modder.git
+git clone https://github.com/ReworkedsModder/CamPhish-Modder
 cd CamPhish
 bash camphish.sh
 ```
