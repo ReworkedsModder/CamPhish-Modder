@@ -48,11 +48,9 @@ trap 'printf "\n"; stop' INT TERM
 banner() {
 clear
 
-```
 printf "${GREEN}${BOLD}\n"
 
 printf '%s\n' \
-```
 
 '.d8888b.                         8888888b.  888       d8b          888           888b     d888               888      888' 
 'd88P  Y88b                        888   Y88b 888       Y8P          888           8888b   d8888               888      888' 
@@ -63,12 +61,10 @@ printf '%s\n' \
 'Y88b  d88P 888  888 888  888  888 888        888  888 888     X88 888  888      888   "    888 Y88..88P Y88b 888 Y88b 888 Y8b.     888' 
 ' "Y8888P"  "Y888888 888  888  888 888        888  888 888  88888P''' 888  888      888        888  "Y88P"   "Y88888  "Y88888  "Y8888  888'
 
-```
 printf "${RESET}\n"
 printf "  ${GREEN}${BOLD}[+] CamPhish Modder v1${RESET}  ${GREEN}// hacker edition${RESET}\n"
 printf "  ${GREEN}» GPS + Camera capture • Ngrok / CloudFlare • Termux / Linux / Win${RESET}\n"
 printf "\n"
-```
 
 }
 
